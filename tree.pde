@@ -1,8 +1,3 @@
-// Coding Rainbow
-// Daniel Shiffman
-// http://patreon.com/codingtrain
-// Code for: https://youtu.be/JcopTKXt8L8
-
 class Tree {
   ArrayList<Branch> branches = new ArrayList<Branch>();
   ArrayList<Leaf> leaves = new ArrayList<Leaf>();
