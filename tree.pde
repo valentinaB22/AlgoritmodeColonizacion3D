@@ -27,7 +27,7 @@ class Tree {
     for (int i=0; i < puntosX.length; i++)
       leaves.add(new Leaf(Float.parseFloat(puntosX[i]),Float.parseFloat(puntosY[i]),Float.parseFloat(puntosZ[i])));
   
-    Branch root = new Branch(new PVector(0,height/2), new PVector(0, -1));
+    Branch root = new Branch(new PVector(0,0), new PVector(0, 0));
     branches.add(root);
     Branch current = new Branch(root);
 
@@ -52,7 +52,6 @@ class Tree {
   void grow() {
     for (Leaf l : leaves) {
       Branch closest = null;
-      PVector closestDir = null;
       float record = -1;
 
       for (Branch b : branches) {
@@ -88,7 +87,7 @@ class Tree {
         b.dir.div(b.count);
         PVector rand = PVector.random2D();
         rand.setMag(0.3);
-        b.dir.add(rand);
+        b.dir.add(closestDir);
         b.dir.normalize();
         Branch newB = new Branch(b);
         branches.add(newB);
