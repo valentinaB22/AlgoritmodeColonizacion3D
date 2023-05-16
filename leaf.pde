@@ -6,7 +6,8 @@ class Leaf {
     pos = new PVector(x,y,z);
    // pos = PVector.random3D();
     //pos.mult(random(width/2));
-    pos.y -= height/4;
+    pos.y -= 0;
+    //height/10;
   }
 
   void reached() {
@@ -16,10 +17,10 @@ class Leaf {
   void show() {
     fill(255);
     noStroke();
-    pushMatrix();
+   pushMatrix();
     translate(pos.x, pos.y, pos.z);
-    //sphere(4);
-    ellipse(0,0, 4, 4);
-    popMatrix();
+    //sphere(1);
+    ellipse(0,0, 1 , 1);
+   popMatrix();
   }
 }
