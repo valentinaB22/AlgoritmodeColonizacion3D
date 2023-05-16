@@ -4,7 +4,7 @@ class Branch {
   PVector dir;
   int count = 0;
   PVector saveDir;
-  float len = 5;
+  float len = 3;
   
   Branch(PVector v, PVector d) {
     parent = null;
