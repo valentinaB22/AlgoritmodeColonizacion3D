@@ -49,11 +49,12 @@ class Tree {
     return false;
   }
 
+ 
   void grow() {
     for (Leaf l : leaves) {
       Branch closest = null;
+      PVector closestDir = null;
       float record = -1;
-
       for (Branch b : branches) {
         PVector dir = PVector.sub(l.pos, b.pos);
         float d = dir.mag();
@@ -74,20 +75,18 @@ class Tree {
         closest.count++;
       }
     }
-
     for (int i = leaves.size()-1; i >= 0; i--) {
       if (leaves.get(i).reached) {
         leaves.remove(i);
       }
     }
-
     for (int i = branches.size()-1; i >= 0; i--) {
       Branch b = branches.get(i);
       if (b.count > 0) {
         b.dir.div(b.count);
         PVector rand = PVector.random2D();
         rand.setMag(0.3);
-        b.dir.add(closestDir);
+        b.dir.add(rand);
         b.dir.normalize();
         Branch newB = new Branch(b);
         branches.add(newB);
@@ -95,7 +94,6 @@ class Tree {
       }
     }
   }
-
   void show() {
     for (Leaf l : leaves) {
       l.show();
